@@ -2,7 +2,6 @@ class Player:
     def __init__(self,x,y,radius):
         self.x = x
         self.y = y
-        
         self.vx = 0
         self.vy = 0 
         
@@ -11,6 +10,11 @@ class Player:
         self.max_speed = 5 
         self.acceleration = 0.5
         self.friction = 0.95
+
+        self.hp = 100
+        self.tag_active = False 
+        self.tag_timer = 0
+        self.tag_cooldown = 0
 
     def apply_accel(self,ax,ay):
         self.vx += ax*self.acceleration
@@ -24,7 +28,7 @@ class Player:
             self.vy*=scale 
 
     def update(self):
-        
+
         self.vx*=self.friction
         self.vy*=self.friction
 

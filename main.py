@@ -7,6 +7,8 @@ from renderer.renderer import Renderer
 def update():
     ax = 0
     ay = 0
+    bx = 0
+    by = 0
     if keys["w"]:
         ay-=1 
     if keys["a"]:
@@ -15,7 +17,15 @@ def update():
         ay+=1 
     if keys["d"]:
         ax+=1 
-    env.step((ax,ay))
+    if keys["up"]:
+        by-=1 
+    if keys["left"]:
+        bx-=1 
+    if keys["right"]:
+        bx+=1 
+    if keys["down"]:
+        by+=1
+    env.step([(ax,ay), [bx,by]])
     renderer.render()
     root.after(16,update)
     
@@ -24,6 +34,11 @@ keys = {
     "a" : False,
     "s" : False,
     "d" : False,
+    "up": False,
+    "left": False,
+    "right": False,
+    "down" : False,
+    "k" : False,
     "space" : False
  }
 def key_press(event):
