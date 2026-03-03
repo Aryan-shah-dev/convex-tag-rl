@@ -16,3 +16,19 @@ def handle_boundary(player,game_map):
         player.y = game_map.height-r 
         if player.vy > 0:
             player.vy = 0
+def handle_tag(player,tag,global_tag):
+    if player.tag_cooldown == 0 and tag and not global_tag:
+        player.tag_cooldown = 180
+        player.tag_active = True 
+        player.tag_timer = 60
+        return True
+    else:
+        if player.tag_timer == 1:
+            player.tag_cooldown = max(0, player.tag_cooldown-1)
+            player.tag_timer = max(0 , player.tag_timer-1)
+            player.tag_active = False
+            return False
+        else:
+            player.tag_cooldown = max(0, player.tag_cooldown-1)
+            player.tag_timer = max(0, player.tag_timer-1)
+            return global_tag

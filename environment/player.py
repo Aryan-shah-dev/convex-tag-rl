@@ -1,11 +1,11 @@
 class Player:
-    def __init__(self,x,y,radius):
+    def __init__(self,x,y,radius, color):
         self.x = x
         self.y = y
         self.vx = 0
         self.vy = 0 
-        
         self.radius = radius
+        self.color = color
 
         self.max_speed = 5 
         self.acceleration = 0.5

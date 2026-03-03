@@ -12,7 +12,9 @@ class Renderer:
             player.x-player.radius,
             player.y+player.radius,
             player.x+player.radius,
-            player.y-player.radius))
+            player.y-player.radius,
+            fill = player.color
+            ))
     def render(self):
         players = self.env.players
         for i,player in enumerate(players):
@@ -21,5 +23,9 @@ class Renderer:
                 player.x - player.radius,
                 player.y + player.radius,
                 player.x + player.radius,
-                player.y - player.radius
+                player.y - player.radius,
             )
+            if player.tag_active:
+                self.canvas.itemconfig(self.players_shape[i], fill="red")
+            else:
+                self.canvas.itemconfig(self.players_shape[i],fill=player.color)

@@ -9,6 +9,8 @@ def update():
     ay = 0
     bx = 0
     by = 0
+    atag = False
+    btag = False
     if keys["w"]:
         ay-=1 
     if keys["a"]:
@@ -25,7 +27,11 @@ def update():
         bx+=1 
     if keys["down"]:
         by+=1
-    env.step([(ax,ay), [bx,by]])
+    if keys["space"]:
+        atag = True 
+    if keys["k"]:
+        btag = True
+    env.step([(ax,ay,atag), [bx,by,btag]])
     renderer.render()
     root.after(16,update)
     
