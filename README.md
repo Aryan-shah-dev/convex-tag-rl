@@ -23,6 +23,12 @@ Create a minimal but deep environment where strategy emerges from constraints â€
 
 If agents learn something surprising here, the system has done its job.
 
+## Requirements
+
+- Python 3.10+
+- Tkinter (included with standard Python installations)
+- PyTorch
+
 ## License
 
 MIT â€” free to use, modify, and build upon.
