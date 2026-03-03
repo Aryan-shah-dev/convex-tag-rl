@@ -32,3 +32,10 @@ def handle_tag(player,tag,global_tag):
             player.tag_cooldown = max(0, player.tag_cooldown-1)
             player.tag_timer = max(0, player.tag_timer-1)
             return global_tag
+def handle_collisions(players):
+    for i,player in enumerate(players):
+        for j,playerr in enumerate(players):
+            if i == j:
+                continue
+            if players[i].tag_active and ((players[j].x-players[i].x)**2 + (players[j].y - players[i].y)**2)**0.5 <= (2*player.radius):
+                players[j].hp-=3

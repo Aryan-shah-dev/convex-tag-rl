@@ -34,6 +34,8 @@ def update():
     env.step([(ax,ay,atag), [bx,by,btag]])
     renderer.render()
     root.after(16,update)
+    if env.game_over:
+        root.destroy()
     
 keys = {
     "w" : False,
